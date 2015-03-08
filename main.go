@@ -10,7 +10,8 @@ func main() {
 	router := httprouter.New()
 	router.GET("/", Index)
 	router.GET("/static/*filename", Static)
-	router.POST("/zaam/new/", NewVideo)
+	router.GET("/new/:id", New)
+	router.GET("/args/:id", GetArgs)
 
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
